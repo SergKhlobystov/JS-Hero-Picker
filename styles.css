@@ -10,7 +10,7 @@ body {
   background-attachment: fixed;
 }
 
-.section {
+.container {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -29,4 +29,129 @@ body {
 
 h1 {
   color: antiquewhite;
+}
+
+h2 {
+  margin: 12px 0 0 0;
+}
+
+p {
+  margin: 0;
+  padding: 0 6px 12px 6px;
+}
+
+.your-hero {
+  display: none;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* відео заповнює контейнер, зберігаючи пропорції */
+  border-radius: 24px;
+}
+
+.wizard-bio,
+.fraction,
+.heroes {
+  display: flex;
+  flex-direction: column;
+  color: antiquewhite;
+}
+
+.wizard-bio {
+  display: none;
+}
+
+.heroes {
+  display: none;
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 48px;
+  padding: 12px;
+}
+
+button {
+  padding: 6px 0;
+  width: 136px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Кнопка темряви - страшна */
+.dark {
+  background: linear-gradient(145deg, #1a0000, #330000);
+  color: #ff0000;
+  border: 2px solid #660000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.dark:hover {
+  background: linear-gradient(145deg, #330000, #4d0000);
+  color: #ff3333;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 0, 0, 0.2);
+  text-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  transform: scale(1.05);
+  border-color: #ff0000;
+}
+
+.dark:active {
+  animation: darkFlash 0.3s ease;
+  transform: scale(0.98);
+}
+
+/* Анімація спалаху для темної кнопки */
+@keyframes darkFlash {
+  0%,
+  100% {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(255, 0, 0, 1), 0 0 150px rgba(255, 0, 0, 0.8),
+      inset 0 0 50px rgba(255, 0, 0, 0.5);
+    background: #660000;
+  }
+}
+
+/* Кнопка світла - добра */
+.light {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #4169e1;
+  border: 2px solid #87ceeb;
+  box-shadow: 0 0 20px rgba(135, 206, 235, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.light:hover {
+  background: linear-gradient(145deg, #f0f8ff, #e6f3ff);
+  color: #1e90ff;
+  box-shadow: 0 0 30px rgba(135, 206, 235, 0.8),
+    0 0 50px rgba(135, 206, 235, 0.6), inset 0 0 20px rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.8);
+  transform: scale(1.05);
+  border-color: #1e90ff;
+}
+
+.light:active {
+  animation: lightFlash 0.3s ease;
+  transform: scale(0.98);
+}
+
+/* Анімація спалаху для світлої кнопки */
+@keyframes lightFlash {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(135, 206, 235, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 80px rgba(255, 255, 255, 1),
+      0 0 120px rgba(135, 206, 235, 1), inset 0 0 40px rgba(255, 255, 255, 1);
+    background: #ffffff;
+  }
 }
