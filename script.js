@@ -1,0 +1,1 @@
+import { heroesData } from '/data.js'
