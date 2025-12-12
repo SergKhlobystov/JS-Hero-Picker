@@ -1,0 +1,21 @@
+{
+  "name": "js-hero-picker",
+  "version": "1.0.0",
+  "description": "JS Learning Project",
+  "main": "data.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergKhlobystov/JS-Hero-Picker.git"
+  },
+  "keywords": [],
+  "author": "Serg Khlobystov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergKhlobystov/JS-Hero-Picker/issues"
+  },
+  "homepage": "https://github.com/SergKhlobystov/JS-Hero-Picker#readme"
+}
