@@ -231,3 +231,148 @@ galleryBtn.addEventListener('click', () => {
     // 5. ДОДАЄМО ОБРОБНИК КЛІКУ НА КАРТИНКИ (Див. Крок 6)
     addGalleryImageClickListener();
 });
+
+
+function addGalleryImageClickListener() {
+    const cards = galleryScreen.querySelectorAll('.hero-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('click', (event) => {
+            event.stopPropagation();
+            
+            // Оверлей
+            const overlay = document.createElement('div');
+            Object.assign(overlay.style, {
+                position: 'fixed',
+                inset: '0',
+                backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                zIndex: '100',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+                opacity: '0',
+                transition: 'opacity 0.3s ease',
+                padding: '40px'
+            });
+            
+            // Контейнер
+            const container = document.createElement('div');
+            Object.assign(container.style, {
+                position: 'relative',
+                maxWidth: '95vw',
+                maxHeight: '95vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+            });
+            
+            // Клонована картка
+            const clonedCard = card.cloneNode(true);
+            Object.assign(clonedCard.style, {
+                maxWidth: '100%',
+                maxHeight: '95vh',
+                width: 'auto',
+                height: 'auto',
+                transform: 'scale(0.9)',
+                transition: 'transform 0.3s ease',
+                cursor: 'default',
+                display: 'block'
+            });
+            
+            // Збільшуємо зображення
+            const img = clonedCard.querySelector('img');
+            if (img) {
+                Object.assign(img.style, {
+                    width: 'auto',
+                    height: 'auto',
+                    maxWidth: '95vw',
+                    maxHeight: '95vh',
+                    objectFit: 'contain'
+                });
+            }
+            
+            // Збільшуємо ім'я героя (клас .hero-name-label з CSS)
+            const heroName = clonedCard.querySelector('.hero-name-label');
+            if (heroName) {
+                Object.assign(heroName.style, {
+                    fontSize: '32px',
+                    fontWeight: 'bold'
+                });
+            }
+            
+            // Кнопка закриття (квадрат)
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '✕';
+            Object.assign(closeButton.style, {
+                position: 'absolute',
+                top: '-15px',
+                right: '-15px',
+                width: '55px',
+                height: '55px',
+                minWidth: '55px',
+                minHeight: '55px',
+                padding: '0',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '6px',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                color: '#fff',
+                fontSize: '32px',
+                fontWeight: 'bold',
+                lineHeight: '1',
+                cursor: 'pointer',
+                zIndex: '102',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
+            });
+            
+            // Ховер для хрестика
+            closeButton.onmouseenter = () => {
+                closeButton.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                closeButton.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+                closeButton.style.transform = 'scale(1.1)';
+            };
+            closeButton.onmouseleave = () => {
+                closeButton.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                closeButton.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                closeButton.style.transform = 'scale(1)';
+            };
+            
+            clonedCard.onclick = (e) => e.stopPropagation();
+            
+            container.append(clonedCard, closeButton);
+            overlay.appendChild(container);
+            document.body.appendChild(overlay);
+            
+            // Анімація появи
+            requestAnimationFrame(() => {
+                overlay.style.opacity = '1';
+                clonedCard.style.transform = 'scale(1)';
+            });
+            
+            // Закриття
+            const closeOverlay = () => {
+                overlay.style.opacity = '0';
+                clonedCard.style.transform = 'scale(0.9)';
+                setTimeout(() => overlay.remove(), 300);
+            };
+            
+            overlay.onclick = closeOverlay;
+            closeButton.onclick = (e) => {
+                e.stopPropagation();
+                closeOverlay();
+            };
+            
+            const escHandler = (e) => {
+                if (e.key === 'Escape') {
+                    closeOverlay();
+                    document.removeEventListener('keydown', escHandler);
+                }
+            };
+            document.addEventListener('keydown', escHandler);
+        });
+    });
+}
