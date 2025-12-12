@@ -8,6 +8,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  transition: background-image 0.5s ease;
 }
 
 .container {
@@ -23,8 +24,13 @@ body {
   border: 2px solid hsla(27, 27%, 8%, 0.75);
 }
 
-.heroes {
-  font-size: 14px;
+#heroes-list {
+  font-size: 20px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 18px;
 }
 
 .logo {
@@ -33,10 +39,14 @@ body {
 
 h1 {
   color: antiquewhite;
+  font-size: 80px;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
   margin: 12px 0 0 0;
+  font-size: 52px;
 }
 
 p {
@@ -49,8 +59,7 @@ p {
 }
 
 video {
-  width: 100%;
-  height: 100%;
+  height: 560px;
   object-fit: cover; /* відео заповнює контейнер, зберігаючи пропорції */
   border-radius: 24px;
 }
@@ -64,7 +73,7 @@ video {
 }
 
 .fraction {
-  height: 600px;
+  height: 300px;
 }
 
 .wizard-bio {
@@ -73,6 +82,7 @@ video {
 
 .heroes {
   display: none;
+  padding-bottom: 24px;
 }
 
 #heroes-list {
@@ -84,15 +94,17 @@ video {
 }
 
 .buttons-wrapper {
+  margin-top: 24px;
   display: flex;
   gap: 48px;
   padding: 12px;
 }
 
 button {
+  font-size: 1.5em;
   padding: 6px 0;
-  min-width: 120px;
-
+  min-width: 220px;
+  min-height: 52px;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -241,20 +253,23 @@ button {
 .nav-wrapper {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Зменшуємо відстань між кнопками */
+  gap: 32px; /* Зменшуємо відстань між кнопками */
+  height: 100px;
 }
 
 /* ======================================= */
 /* 2. СТИЛІ КНОПОК НАВІГАЦІЇ (Мінімалізм) */
 /* ======================================= */
 .nav-btn {
-  font-size: 0.6em; /* Невеликий шрифт */
+  font-size: 1.2em; /* Невеликий шрифт */
   font-weight: 400; /* Нежирний шрифт */
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 4px; /* Майже квадратні */
   letter-spacing: 0;
   text-transform: none; /* Залишаємо стандартний регістр */
+  min-width: 160px;
+  min-height: 32px;
 
   /* Скидання тіні */
   box-shadow: none;
@@ -288,21 +303,6 @@ button {
   transform: scale(1.05);
 }
 
-/* ======================================= */
-/* 1. КЕРУВАННЯ ФОНОМ BODY */
-/* ======================================= */
-/* Початковий фон (який буде на екрані фракцій) */
-body {
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed; /* Щоб фон не скролився */
-  transition: background-image 0.5s ease; /* Плавна зміна фону */
-}
-
-/* ======================================= */
-/* 2. СТИЛІ ГАЛЕРЕЇ */
-/* ======================================= */
-
 .gallery-screen h2 {
   color: #ffcc00; /* Золотий заголовок */
   text-align: center;
@@ -319,6 +319,7 @@ body {
 }
 
 .hero-card {
+  font-size: 18px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -326,6 +327,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.5); /* Напівпрозорий темний фон для картки */
+}
+
+.hero-card p {
+  margin-top: 12px;
 }
 
 .hero-card:hover {

@@ -216,7 +216,7 @@ galleryBtn.addEventListener('click', () => {
     });
     
     // 2. ЗМІНА ФОНУ
-    document.body.style.backgroundImage = 'url("images/bg_all_heroes.jpg")';
+    document.body.style.backgroundImage = 'url("images/bg_all_heroes2.jpg")';
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
