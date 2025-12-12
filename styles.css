@@ -63,6 +63,10 @@ video {
   color: antiquewhite;
 }
 
+.fraction {
+  height: 600px;
+}
+
 .wizard-bio {
   display: none;
 }
@@ -87,8 +91,8 @@ video {
 
 button {
   padding: 6px 0;
-  min-width: 68px;
-  width: 16vw;
+  min-width: 120px;
+
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
