@@ -30,15 +30,18 @@
         <button id="dark" class="dark">Dark Wizard</button>
       </div>
     </div>
-    <div class="container heroes" id="heroes"></div>
-    <div class="container your-hero">
+    <div class="container heroes" id="heroes">
+      <div id="heroes-list"></div>
+      <button class="choose-hero-btn" id="choose-hero-btn">Choose Hero</button>
+    </div>
+    <div id="your-hero" class="container your-hero">
       <video autoplay muted loop playsinline>
         <source src="/video/ice.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="container wizard-bio">
-      <h2>Wizard Name</h2>
-      <p>
+    <div id="wizard-bio" class="container wizard-bio">
+      <h2 id="wizard-name-render">Wizard Name</h2>
+      <p id="wizard-bio-render">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
         provident. Praesentium quae ipsa aliquam, incidunt esse ipsam culpa
         mollitia porro dolorum ea molestias error totam, quo tempora, quasi

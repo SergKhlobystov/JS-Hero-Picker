@@ -3,14 +3,24 @@ import { heroesData } from './data.js'
 const lightBtn = document.getElementById('light')
 const darkBtn = document.getElementById('dark') // Берем контроль над кнопками вибору фракції
 
+const chooseHeroBtn = document.getElementById('choose-hero-btn')
+
 const heroesContainer = document.getElementById('heroes')
+const heroesListContainer = document.getElementById('heroes-list')
+
 //ЗНАХОДИМО КОНТЕЙНЕР ДЛЯ КНОПОК
-const fractionContainer = document.getElementById('fraction'); 
+const fractionContainer = document.getElementById('fraction')
 
 // Робимо списки світлих та темних героїв:
 
-const lightHeroes = heroesData.filter(hero => !hero.isEvil);
-const darkHeroes = heroesData.filter(hero => hero.isEvil);
+const lightHeroes = heroesData.filter(hero => !hero.isEvil)
+const darkHeroes = heroesData.filter(hero => hero.isEvil)
+
+
+const yourHero = document.getElementById('your-hero')
+const wizardBio = document.getElementById('wizard-bio')
+const wizardNameR = document.getElementById('wizard-name-render')
+const wizardBioR = document.getElementById('wizard-bio-render')
 
 const lightHeroesList = heroesData
     .filter(hero => !hero.isEvil)
@@ -60,11 +70,11 @@ lightBtn.addEventListener('click', () => {
     fractionContainer.style.display = 'none'; 
     
     // 2. Показуємо контейнер героїв
-    heroesContainer.style.display = 'block'; // або 'flex', залежно від твого CSS
+    heroesContainer.style.display = 'flex'; // або 'flex', залежно від твого CSS
     
     // ЛОГІКА ГЕНЕРАЦІЇ СПИСКУ:
     const htmlToInsert = renderHeroesList(lightHeroesList);
-    heroesContainer.innerHTML = htmlToInsert;
+    heroesListContainer.innerHTML = htmlToInsert;
 });
 
 
@@ -74,9 +84,19 @@ darkBtn.addEventListener('click', () => {
     fractionContainer.style.display = 'none'; 
     
     // 2. Показуємо контейнер героїв
-    heroesContainer.style.display = 'block'; 
+    heroesContainer.style.display = 'flex'; 
     
     // ЛОГІКА ГЕНЕРАЦІЇ СПИСКУ:
     const htmlToInsert = renderHeroesList(darkHeroesList);
-    heroesContainer.innerHTML = htmlToInsert;
+    heroesListContainer.innerHTML = htmlToInsert;
 });
+
+chooseHeroBtn.addEventListener('click', () =>{
+    heroesContainer.style.display = 'none';
+    yourHero.style.display = 'flex';
+    wizardBio.style.display = 'flex';
+
+    const nameToInsert = renderHeroName()
+    const bioToInsert = renderHeroBio()
+}
+)

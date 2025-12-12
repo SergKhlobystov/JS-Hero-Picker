@@ -23,6 +23,10 @@ body {
   border: 2px solid hsla(27, 27%, 8%, 0.75);
 }
 
+.heroes {
+  font-size: 14px;
+}
+
 .logo {
   width: 100px;
 }
@@ -65,6 +69,10 @@ video {
 
 .heroes {
   display: none;
+}
+
+#heroes-list {
+  margin-top: 12px;
 }
 
 .buttons-wrapper {
@@ -154,5 +162,66 @@ button {
     box-shadow: 0 0 80px rgba(255, 255, 255, 1),
       0 0 120px rgba(135, 206, 235, 1), inset 0 0 40px rgba(255, 255, 255, 1);
     background: #ffffff;
+  }
+}
+
+/* Стиль для кнопки вибору героя: Сучасне Похмуре Фентезі (Dark Fantasy UI/UX) */
+.choose-hero-btn {
+  /* Базові стилі та типографія */
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Більш плавна анімація */
+  text-transform: uppercase;
+
+  /* Кольорова Схема: Глибока Текстура */
+  background: #1a1a1a; /* Глибокий чорний фон */
+  color: #f0f0f0; /* Світло-сірий, майже білий шрифт */
+
+  /* Облямівка: Тонка і холодна */
+  border: 1px solid #4a4a4a;
+
+  /* Світіння: Містичний фіолетово-крижаний блиск */
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3),
+    /* Аметистове світіння */ 0 0 5px rgba(0, 0, 0, 0.8) inset; /* Внутрішнє затемнення */
+
+  /* Тінь для тексту, що імітує неонове світіння */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+/* Ефект при наведенні (Hover) */
+.choose-hero-btn:hover {
+  background: #2c2c2c; /* Трохи світліший фон для зворотного зв'язку */
+  color: #ffffff; /* Чистий білий шрифт */
+  border-color: #9370db; /* Середній фіолетовий */
+
+  /* Посилене холодне світіння */
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.7),
+    /* Яскравіше аметистове світіння */ 0 0 50px rgba(72, 61, 139, 0.5),
+    /* Глибоке індиго */ inset 0 0 10px rgba(255, 255, 255, 0.1);
+
+  text-shadow: 0 0 8px #ffffff;
+  transform: translateY(
+    -2px
+  ); /* Легкий підйом для відчуття інтерактивності (UX) */
+}
+
+/* Ефект при натисканні (Active) */
+.choose-hero-btn:active {
+  animation: darkPulse 0.3s ease;
+  transform: translateY(1px); /* Вдавлювання */
+  background: #111111; /* Ще темніший фон */
+}
+
+/* Анімація "Темний Пульс" */
+@keyframes darkPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.7);
+  }
+  50% {
+    /* Імітація містичного енергетичного спалаху */
+    box-shadow: 0 0 50px rgba(138, 43, 226, 1),
+      0 0 80px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(138, 43, 226, 0.8);
+    border-color: #f0f0f0;
   }
 }
