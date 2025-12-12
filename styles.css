@@ -75,6 +75,10 @@ video {
   margin-top: 12px;
 }
 
+.gallery-screen {
+  display: none;
+}
+
 .buttons-wrapper {
   display: flex;
   gap: 48px;
@@ -224,4 +228,116 @@ button {
       0 0 80px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(138, 43, 226, 0.8);
     border-color: #f0f0f0;
   }
+}
+
+/* ======================================= */
+/* 1. СТИЛЬ ФІКСОВАНОГО НИЖНЬОГО КОНТЕЙНЕРА */
+/* ======================================= */
+
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Зменшуємо відстань між кнопками */
+}
+
+/* ======================================= */
+/* 2. СТИЛІ КНОПОК НАВІГАЦІЇ (Мінімалізм) */
+/* ======================================= */
+.nav-btn {
+  font-size: 0.6em; /* Невеликий шрифт */
+  font-weight: 400; /* Нежирний шрифт */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px; /* Майже квадратні */
+  letter-spacing: 0;
+  text-transform: none; /* Залишаємо стандартний регістр */
+
+  /* Скидання тіні */
+  box-shadow: none;
+}
+
+/* Стиль для кнопки "Change Destiny" (Світло-сірий, стриманий) */
+#reset-fraction-btn {
+  background: black; /* Прозорий фон */
+  color: #b0b0b0; /* Світло-сірий текст */
+  border: 1px solid #4a4a4a; /* Тонка сіра облямівка */
+}
+
+#reset-fraction-btn:hover {
+  background: rgba(138, 43, 226, 0.75); /* Дуже легкий фіолетовий акцент */
+  color: #fff;
+  border-color: #8a2be2; /* Тонка фіолетова облямівка */
+  transform: scale(1.05);
+}
+
+/* Стиль для кнопки "View Gallery" (Темний, акцентний) */
+#gallery-btn {
+  background: transparent;
+  color: #999; /* Трохи темніший текст */
+  border: 1px solid #4a4a4a;
+}
+
+#gallery-btn:hover {
+  background: rgba(138, 43, 226, 0.1); /* Дуже легкий фіолетовий акцент */
+  color: #fff;
+  border-color: #8a2be2; /* Тонка фіолетова облямівка */
+  transform: scale(1.05);
+}
+
+/* ======================================= */
+/* 1. КЕРУВАННЯ ФОНОМ BODY */
+/* ======================================= */
+/* Початковий фон (який буде на екрані фракцій) */
+body {
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Щоб фон не скролився */
+  transition: background-image 0.5s ease; /* Плавна зміна фону */
+}
+
+/* ======================================= */
+/* 2. СТИЛІ ГАЛЕРЕЇ */
+/* ======================================= */
+
+.gallery-screen h2 {
+  color: #ffcc00; /* Золотий заголовок */
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.gallery-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Дозволяє карткам переноситися на наступний рядок */
+  gap: 30px;
+}
+
+.hero-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5); /* Напівпрозорий темний фон для картки */
+}
+
+.hero-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); /* Містичне світіння при наведенні */
+}
+
+.gallery-img {
+  display: block;
+  height: 200px; /* Фіксована висота, щоб були однакові */
+  object-fit: cover; /* Забезпечує правильне обрізання */
+  border-radius: 4px;
+}
+
+.hero-name-label {
+  color: #f0f0f0;
+  margin-top: 8px;
+  font-size: 0.9em;
 }
