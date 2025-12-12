@@ -1,5 +1,7 @@
 import { heroesData } from './data.js'
 
+const appHeader = document.querySelector('header');
+
 const lightBtn = document.getElementById('light')
 const darkBtn = document.getElementById('dark') // Берем контроль над кнопками вибору фракції
 
@@ -144,6 +146,16 @@ resetFractionBtn.addEventListener('click', () => {
     
     // 4. ПОКАЗУЄМО ЕКРАН ВИБОРУ ФРАКЦІЇ (головний екран)
     fractionContainer.style.display = 'flex';
+
+    //5. Галерею теж приховуємо:
+    galleryScreen.style.display = 'none';
+
+    //6.Повертаємо Хедер
+    appHeader.style.display = 'block';
+
+    //7.Повертаємо фон
+    document.body.style.backgroundImage = 'url("/images/bg_main.jpg")';
+    
 });
 
 // index.js (додай десь поряд з renderHeroesList)
@@ -192,13 +204,22 @@ function renderGallery() {
 galleryBtn.addEventListener('click', () => {
     
     // 1. ПРИХОВУЄМО ВСІ ПОПЕРЕДНІ ЕКРАНИ
+    appHeader.style.display = 'none';
     fractionContainer.style.display = 'none';
     heroesContainer.style.display = 'none';
     yourHero.style.display = 'none';
     wizardBio.style.display = 'none';
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Для більш плавного переходу (за бажанням)
+    });
     
     // 2. ЗМІНА ФОНУ
-    document.body.style.backgroundImage = 'url("/images/bg_all_heroes.jpg")';
+    document.body.style.backgroundImage = 'url("images/bg_all_heroes.jpg")';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
 
     // 3. РЕНДЕРИМО КОНТЕНТ ГАЛЕРЕЇ
     const galleryHTMLContent = renderGallery();
